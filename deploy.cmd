@@ -148,8 +148,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\manage.py" (
 )
 
 :: 7. Install Node modules
-IF EXIST "%DEPLOYMENT_TARGET%\eventwall\package.json" (
-    pushd "%DEPLOYMENT_TARGET%\eventwall"
+IF EXIST "%DEPLOYMENT_TARGET%\webapp\package.json" (
+    pushd "%DEPLOYMENT_TARGET%\webapp"
     call :ExecuteCmd npm install --production --ignore-scripts
     IF !ERRORLEVEL! NEQ 0 goto error
     popd
