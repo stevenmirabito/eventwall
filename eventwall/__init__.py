@@ -24,7 +24,7 @@ def default():
 def upload():
     if request.method == 'POST':
         name = request.form['inputName']
-        #email = request.form['inputEmail']
+        email = request.form['inputEmail']
         # wall = request.form['wallId']
         # uploaded_file = request.files['inputFile']
 
@@ -39,8 +39,8 @@ def upload():
         sp = SparkPost(sparkpost_api_key)
 
         sp.transmissions.send(
-            recipients=['steven@stevenmirabito.com'],
-            html='<p>Hey Steven!</p><p>Thanks for uploading to an EventWall. We\'ll let you know when an administrator approves your submission.</p><p>Thanks!</p><p>The EventWall Team</p>',
+            recipients=[email],
+            html='<p>Hey ' + name + '!</p><p>Thanks for uploading to an EventWall. We\'ll let you know when an administrator approves your submission.</p><p>Thanks!</p><p>The EventWall Team</p>',
             from_email='eventwall@sparkpostbox.com',
             subject='Thanks for uploading to EventWall!',
             track_opens=True,
