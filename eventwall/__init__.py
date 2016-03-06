@@ -15,7 +15,7 @@ blob_service = BlobService(account_name=azure_account_name, account_key=azure_ac
 
 @app.route('/')
 def default():
-    return redirect("http://api.eventwall.org/", code=302)
+    return redirect("http://eventwall.org/", code=302)
 
 
 @app.route('/upload', methods=['POST'])
