@@ -1,25 +1,16 @@
-<div class="row">
-    <div class="col-lg-4 col-lg-offset-4">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="EventWall">
+<form-component>
+    <h2>
+        <ng-content></ng-content>
+    </h2>
+    <div class="form-group label-floating">
+        <label class="control-label" for="inputLarge">Wall ID</label>
+        <div class="input-group">
+            <input class="form-control input-lg" type="text" id="inputLarge">
+          <span class="input-group-btn input-group-sm">
+            <button type="button" class="btn btn-fab btn-fab-mini">
+                <i class="material-icons">done</i>
+            </button>
+          </span>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-lg-4 col-lg-offset-4">
-        <div class="jumbotron">
-            <h2><ng-content></ng-content></h2>
-            <div class="form-group label-floating">
-                <label class="control-label" for="inputLarge">Wall ID</label>
-                <div class="input-group">
-                    <input class="form-control input-lg" type="text" id="inputLarge">
-                  <span class="input-group-btn input-group-sm">
-                    <button type="button" class="btn btn-fab btn-fab-mini">
-                        <i class="material-icons">done</i>
-                    </button>
-                  </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</form-component>

@@ -1,14 +1,10 @@
-import {Component, AfterViewInit} from 'angular2/core';
+import {Component} from 'angular2/core';
+import {FormComponent} from './form.component';
 
 @Component({
     selector: 'wall-prompt',
-    templateUrl: './app/components/wall-prompt.component.html'
+    templateUrl: './app/components/wall-prompt.component.html',
+    directives: [FormComponent]
 })
 
-export class WallPromptComponent implements AfterViewInit {
-    // Hooks
-    ngAfterViewInit() {
-        // Re-initialize material components
-        window['$'].material.init();
-    }
-}
+export class WallPromptComponent {}

@@ -1,6 +1,4 @@
-System.register(['angular2/core', './form.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,32 +8,33 @@ System.register(['angular2/core', './form.component'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, form_component_1;
-    var WallPromptComponent;
+    var core_1;
+    var FormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (form_component_1_1) {
-                form_component_1 = form_component_1_1;
             }],
         execute: function() {
-            WallPromptComponent = (function () {
-                function WallPromptComponent() {
+            FormComponent = (function () {
+                function FormComponent() {
                 }
-                WallPromptComponent = __decorate([
+                // Hooks
+                FormComponent.prototype.ngAfterViewInit = function () {
+                    // Re-initialize material components
+                    window['$'].material.init();
+                };
+                FormComponent = __decorate([
                     core_1.Component({
-                        selector: 'wall-prompt',
-                        templateUrl: './app/components/wall-prompt.component.html',
-                        directives: [form_component_1.FormComponent]
+                        selector: 'form-component',
+                        templateUrl: './app/components/form.component.html',
                     }), 
                     __metadata('design:paramtypes', [])
-                ], WallPromptComponent);
-                return WallPromptComponent;
-            }());
-            exports_1("WallPromptComponent", WallPromptComponent);
+                ], FormComponent);
+                return FormComponent;
+            })();
+            exports_1("FormComponent", FormComponent);
         }
     }
 });
-//# sourceMappingURL=wall-prompt.component.js.map
+//# sourceMappingURL=form.component.js.map
