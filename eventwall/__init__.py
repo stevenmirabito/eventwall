@@ -6,7 +6,7 @@ Flask Application Package
 import time
 import hashlib
 import json
-import requests
+from sparkpost import SparkPost
 from flask import Flask, request, redirect
 from azure.storage.blob import BlobService
 from config import *
@@ -24,7 +24,7 @@ def default():
 def upload():
     if request.method == 'POST':
         name = request.form['inputName']
-        email = request.form['inputEmail']
+        #email = request.form['inputEmail']
         # wall = request.form['wallId']
         # uploaded_file = request.files['inputFile']
 
@@ -36,17 +36,16 @@ def upload():
         #            max_connections=5
         #    )
 
-        requests.post("https://api.sparkpost.com/api/v1/transmissions", headers={
-            "Authorization: " + sparkpost_api_key,
-            "Content-Type: application/json"
-        }, data={
-            "content": {
-                "from": "sandbox@sparkpostbox.com",
-                "subject": "Thanks for uploading to EventWall!",
-                "text": "Hey " + name + "!\n\n We just wanted to let you know that we received your EventWall upload. If the administrator has chosen to approve photos before they appear, you'll receive an email when your submission has been approved.\n\nThank you!\n\nThe EventWall Team"
-            }, "recipients": [
-                {"address": email}
-            ]})
+        sp = SparkPost(sparkpost_api_key)
+
+        sp.transmissions.send(
+            recipients=['steven@stevenmirabito.com'],
+            html='<p>Hey Steven!</p><p>Thanks for uploading to an EventWall. We\'ll let you know when an administrator approves your submission.</p><p>Thanks!</p><p>The EventWall Team</p>',
+            from_email='eventwall@sparkpostbox.com',
+            subject='Thanks for uploading to EventWall!',
+            track_opens=True,
+            track_clicks=True
+        )
 
     return redirect("http://eventwall.org/", code=302)
 
@@ -71,4 +70,4 @@ def blob_filename(email, filename):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
