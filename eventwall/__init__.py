@@ -1,8 +1,9 @@
 """
-The flask application package.
+EventWall
+Flask Application Package
 """
 
 from flask import Flask
-app = Flask(__name__)
-
 import eventwall.views
+
+app = Flask(__name__)

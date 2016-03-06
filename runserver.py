@@ -1,5 +1,6 @@
 """
-This script runs the FlaskWebProject application using a development server.
+EventWall
+Development Server Script
 """
 
 from os import environ
