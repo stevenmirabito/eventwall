@@ -13,12 +13,14 @@
     <link rel="stylesheet" href="node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="assets/css/eventwall.css">
+    <link rel="stylesheet" href="node_modules/slippry/dist/slippry.css">
 
     <!-- Load libraries -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/bootstrap-material-design/dist/js/material.min.js"></script>
     <script src="node_modules/bootstrap-material-design/dist/js/ripples.min.js"></script>
+    <script src="node_modules/slippry/dist/slippry.min.js"></script>
 
     <!-- IE required polyfills, in this exact order -->
     <script src="node_modules/es6-shim/es6-shim.min.js"></script>
@@ -54,5 +56,11 @@
       <div class="double-bounce2"></div>
     </div>
 </eventwall-app>
+
+<script>
+    setTimeout(function(){
+        $("#wall").slippry();
+    }, 2000);
+</script>
 </body>
 </html>

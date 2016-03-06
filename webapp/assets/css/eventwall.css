@@ -62,3 +62,9 @@
         -webkit-transform: scale(1.0);
     }
 }
+
+/* ===== Masonry ===== */
+
+.grid-item img {
+    width: 20%;
+}

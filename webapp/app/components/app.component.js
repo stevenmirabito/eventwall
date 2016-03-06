@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './view-wall-prompt.component', './upload-to-wall.component', './wall.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './view-wall-prompt.component', './upload-to-wall.component', './wall.component', './wall.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, view_wall_prompt_component_1, upload_to_wall_component_1, wall_component_1;
+    var core_1, router_1, view_wall_prompt_component_1, upload_to_wall_component_1, wall_component_1, wall_service_1;
     var AppComponent;
     return {
         setters:[
@@ -28,17 +28,21 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
             },
             function (wall_component_1_1) {
                 wall_component_1 = wall_component_1_1;
+            },
+            function (wall_service_1_1) {
+                wall_service_1 = wall_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(_wallService) {
+                    this._wallService = _wallService;
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'eventwall-app',
                         templateUrl: './app/components/app.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [router_1.ROUTER_PROVIDERS]
+                        providers: [router_1.ROUTER_PROVIDERS, wall_service_1.WallService]
                     }),
                     router_1.RouteConfig([
                         {
@@ -48,7 +52,7 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
                             useAsDefault: true
                         },
                         {
-                            path: '/view/:id',
+                            path: '/wall/:id',
                             name: 'Wall',
                             component: wall_component_1.WallComponent
                         },
@@ -58,7 +62,7 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
                             component: upload_to_wall_component_1.UploadToWallComponent,
                         }
                     ]), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [wall_service_1.WallService])
                 ], AppComponent);
                 return AppComponent;
             }());
