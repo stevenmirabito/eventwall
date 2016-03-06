@@ -5,12 +5,13 @@ Flask Application Package
 
 import time
 import hashlib
+import json
 from flask import Flask, request, redirect
 from azure.storage.blob import BlobService
 from config import *
 
 app = Flask(__name__)
-
+blob_service = BlobService(account_name=azure_account_name, account_key=azure_account_key)
 
 @app.route('/')
 def default():
@@ -26,13 +27,23 @@ def upload():
         uploaded_file = request.files['inputFile']
 
         if uploaded_file and allowed_file(uploaded_file.filename):
-            blob_service = BlobService(account_name=azure_account_name, account_key=azure_account_key)
             blob_service.put_block_blob_from_bytes(
                     wall,
                     blob_filename(email, uploaded_file.filename),
                     uploaded_file.read(),
                     max_connections=5
             )
+
+@app.route('/wall/<string:wall_id>', methods=['GET'])
+def get_wall(wall_id):
+    urls = []
+    for blob in blob_service.list_blobs(wall_id):
+        urls.append(blob_service.make_blob_url(
+            container_name=wall_id,
+            blob_name=blob.name
+        ))
+
+    return json.dumps(urls)
 
 
 def allowed_file(filename):
