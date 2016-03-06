@@ -157,3 +157,6 @@ jspm_packages
 
 # Typings
 typings
+
+# Config File
+eventwall/config.py
