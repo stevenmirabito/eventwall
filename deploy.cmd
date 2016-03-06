@@ -149,7 +149,10 @@ IF EXIST "%DEPLOYMENT_TARGET%\manage.py" (
 
 :: 7. Install Node modules
 IF EXIST "%DEPLOYMENT_TARGET%\eventwall\package.json" (
-    call npm install --prefix "%DEPLOYMENT_TARGET%\eventwall"
+    pushd "%DEPLOYMENT_TARGET%\eventwall"
+    call :ExecuteCmd npm install --production
+    IF !ERRORLEVEL! NEQ 0 goto error
+    popd
 )
 
 popd
