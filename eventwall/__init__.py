@@ -37,7 +37,7 @@ def upload():
         #    )
 
         requests.post("https://api.sparkpost.com/api/v1/transmissions", headers={
-            "Authorization: f9af4009f4dd9a48f8f094122cccbba4562c6914",
+            "Authorization: " + sparkpost_api_key,
             "Content-Type: application/json"
         }, data={
             "content": {
