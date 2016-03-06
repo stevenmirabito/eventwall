@@ -1,6 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './view-wall-prompt.component'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
+System.register(['angular2/core', 'angular2/router', './view-wall-prompt.component', './upload-to-wall.component'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, view_wall_prompt_component_1;
+    var core_1, router_1, view_wall_prompt_component_1, upload_to_wall_component_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +20,9 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
             },
             function (view_wall_prompt_component_1_1) {
                 view_wall_prompt_component_1 = view_wall_prompt_component_1_1;
+            },
+            function (upload_to_wall_component_1_1) {
+                upload_to_wall_component_1 = upload_to_wall_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -40,12 +41,17 @@ System.register(['angular2/core', 'angular2/router', './view-wall-prompt.compone
                             name: 'ViewWallPrompt',
                             component: view_wall_prompt_component_1.ViewWallPromptComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/upload',
+                            name: 'UploadToWall',
+                            component: upload_to_wall_component_1.UploadToWallComponent,
                         }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
-            }());
+            })();
             exports_1("AppComponent", AppComponent);
         }
     }

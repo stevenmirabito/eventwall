@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 
 import {ViewWallPromptComponent} from './view-wall-prompt.component';
+import {UploadToWallComponent} from './upload-to-wall.component';
 
 @Component({
     selector: 'eventwall-app',
@@ -16,6 +17,11 @@ import {ViewWallPromptComponent} from './view-wall-prompt.component';
         name: 'ViewWallPrompt',
         component: ViewWallPromptComponent,
         useAsDefault: true
+    },
+    {
+        path: '/upload',
+        name: 'UploadToWall',
+        component: UploadToWallComponent,
     }
 ])
 
