@@ -1,26 +1,28 @@
 <form-component>
     <h2>Upload to Wall</h2>
-    <div class="form-group">
-        <label for="inputName" class="col-md-2 control-label">Name</label>
-        <div class="col-md-10">
-            <input type="email" class="form-control" id="inputName">
+    <form #uploadForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="inputName" class="col-md-2 control-label">Name</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" id="inputName" ngControl="inputName" required>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="inputEmail" class="col-md-2 control-label">Email</label>
-        <div class="col-md-10">
-            <input type="email" class="form-control" id="inputEmail">
+        <div class="form-group">
+            <label for="inputEmail" class="col-md-2 control-label">Email</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" id="inputEmail" ngControl="inputEmail" required>
+            </div>
         </div>
-    </div>
-    <div class="row form-group">
-        <label class="col-md-2 control-label" for="inputFile">Photo</label>
-        <div class="col-md-10">
-            <input type="text" readonly="" class="form-control" placeholder="Browse...">
-            <input type="file" id="inputFile" multiple="">
+        <div class="row form-group">
+            <label class="col-md-2 control-label" for="inputFile">Photo</label>
+            <div class="col-md-10">
+                <input type="text" readonly="" class="form-control" ngControl="inputFile" placeholder="Browse..." required>
+                <input type="file" id="inputFile" multiple="">
+            </div>
         </div>
-    </div>
-    <div class="form-group pull-right">
-        <button type="submit" class="btn btn-primary"><i class="material-icons">file_upload</i> Upload</button>
-    </div>
-    <div class="clearfix"></div>
+        <div class="form-group pull-right">
+            <button type="submit" class="btn btn-primary" [disabled]="!uploadForm.form.valid"><i class="material-icons">file_upload</i> Upload</button>
+        </div>
+        <div class="clearfix"></div>
+    </form>
 </form-component>
