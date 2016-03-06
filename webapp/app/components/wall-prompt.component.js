@@ -19,10 +19,15 @@ System.register(['angular2/core'], function(exports_1) {
             WallPromptComponent = (function () {
                 function WallPromptComponent() {
                 }
+                // Hooks
+                WallPromptComponent.prototype.ngAfterViewInit = function () {
+                    // Re-initialize material components
+                    window['$'].material.init();
+                };
                 WallPromptComponent = __decorate([
                     core_1.Component({
-                        selector: 'wallprompt',
-                        template: '<h2>Enter your wall id</h2>'
+                        selector: 'wall-prompt',
+                        templateUrl: './app/components/wall-prompt.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WallPromptComponent);
@@ -32,4 +37,4 @@ System.register(['angular2/core'], function(exports_1) {
         }
     }
 });
-//# sourceMappingURL=wallprompt.component.js.map
+//# sourceMappingURL=wall-prompt.component.js.map
