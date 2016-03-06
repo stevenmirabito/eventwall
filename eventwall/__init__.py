@@ -48,6 +48,8 @@ def upload():
                 {"address": email}
             ]})
 
+    return redirect("http://eventwall.org/", code=302)
+
 @app.route('/wall/<string:wall_id>', methods=['GET'])
 def get_wall(wall_id):
     urls = []
